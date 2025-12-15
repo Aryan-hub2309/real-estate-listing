@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real Estate | Reservation</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        #successPage {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Reservation / Inquiry Form</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="listings.html">Listings</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="reservation.html">Reservation</a>
+</nav>
+
+<div class="container">
+
+    <div class="box" id="formContainer">
+        <h2>Contact Us</h2>
+
+        <label>Your Name:</label>
+        <input type="text" id="name">
+
+        <label>Email:</label>
+        <input type="email" id="email">
+
+        <label>Phone Number:</label>
+        <input type="text">
+
+        <label>Interested Property:</label>
+        <input type="text">
+
+        <label>Message:</label>
+        <textarea rows="4"></textarea>
+
+        <button onclick="submitForm()">Submit</button>
+    </div>
+
+    <div id="successPage" class="box">
+        <h1>🎉 Welcome to Our Society 🏡</h1>
+        <p>You have successfully registered.</p>
+        <p>We are happy to have you as our valuable member 😊</p>
+        <a href="index.html" class="btn">Go Back to Home</a>
+    </div>
+
+</div>
+
+<script>
+function submitForm(){
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+
+    let namePattern = /^[A-Za-z ]+$/;
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if(!namePattern.test(name)){
+        alert("❌ Enter a valid name (letters only)!");
+        return;
+    }
+    if(!emailPattern.test(email)){
+        alert("❌ Enter a valid email like name@domain.com !");
+        return;
+    }
+
+    document.getElementById("formContainer").style.display = "none";
+    document.getElementById("successPage").style.display = "block";
+}
+</script>
+
+</body>
+</html>
+
+
